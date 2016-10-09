@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Jamie.View;
+using Jamie.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,16 @@ namespace Jamie
     /// </summary>
     public partial class MainWindow : Window
     {
+        private AllDataSetViewModel _ViewModel;
+        private RecipeViewModel _RecipeVM;
+
         public MainWindow()
         {
             InitializeComponent();
+            _ViewModel = new AllDataSetViewModel();
+            _RecipeVM = new RecipeViewModel(_ViewModel.Recipes);
+            this.DataContext = _RecipeVM;
+            
         }
     }
 }

@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Recipes}" SelectedItem="{Binding SelectedItem}" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Height="255" Width="455">
+        </DataGrid>
+
     </Grid>
 </Window>

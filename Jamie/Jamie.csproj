@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\AllDataSetViewModel.cs" />
+    <Compile Include="ViewModel\RecipeViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +71,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AllDataSet.cs" />
+    <Compile Include="Model\FoodPlan.cs" />
+    <Compile Include="Model\Ingredient.cs" />
+    <Compile Include="Model\ListHelper.cs" />
+    <Compile Include="Model\Recipe.cs" />
+    <Compile Include="Model\RecipeIngredient.cs" />
+    <Compile Include="Model\ShoppingList.cs" />
+    <Compile Include="Model\Unit.cs" />
+    <Compile Include="Model\UnitTranslation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
