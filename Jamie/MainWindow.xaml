@@ -1,14 +1,52 @@
-﻿<Window x:Class="Jamie.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jamie"
+        xmlns:ViewModel="clr-namespace:Jamie.ViewModel" x:Class="Jamie.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Recipes}" SelectedItem="{Binding SelectedItem}" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Height="255" Width="455">
-        </DataGrid>
+        Title="MainWindow" Height="517" Width="914">
+    <Grid Margin="0,0,2,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="570*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="299*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="440" Margin="55,20,0,0" VerticalAlignment="Top" Width="825" Grid.ColumnSpan="3">
+            <TabItem x:Name="RecipeTab" Header="Recipes" Margin="0,0,-4,-2">
+                <Grid Background="#FFE5E5E5" Margin="-35,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="72*"/>
+                        <ColumnDefinition Width="405*"/>
+                        <ColumnDefinition Width="377*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dataGrid" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedItem}" HorizontalAlignment="Left" Margin="52,10,0,0" VerticalAlignment="Top" Height="375" Width="405" HorizontalGridLinesBrush="#FF360C16" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="Name" Header="Name" Binding="{Binding Name}" />
+                            <DataGridTextColumn x:Name="Source" Header="Source" Binding="{Binding Source}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="FoodplanTab" Header="Food Plan">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem x:Name="ShoppingListTab" Header="Shopping List">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem x:Name="BaseDataTab" Header="Base Data" Margin="549,0,-549,-2" >
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="787*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid HorizontalAlignment="Left" DataContext="_UnitsVM" Height="375" Margin="22,20,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="listBox" DataContext="_UnitsVM" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedItem}" HorizontalAlignment="Left" Height="340" Margin="22,20,0,0" VerticalAlignment="Top" Width="240" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
 
     </Grid>
 </Window>
